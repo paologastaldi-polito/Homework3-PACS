@@ -112,6 +112,10 @@ def alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> A
                                               progress=progress)
         model.load_state_dict(state_dict, strict=False)
         with torch.no_grad():
-            model.labelPredictor.weight.copy_(model.classifier.weight)
-            model.domainClassifier.weight.copy_(model.classifier.weight)
+            model.labelPredictor[1].weight.copy_(model.classifier[1].weight)
+            model.labelPredictor[4].weight.copy_(model.classifier[4].weight)
+            model.labelPredictor[6].weight.copy_(model.classifier[6].weight)
+            model.domainClassifier[1].weight.copy_(model.classifier[1].weight)
+            model.domainClassifier[4].weight.copy_(model.classifier[4].weight)
+            model.domainClassifier[6].weight.copy_(model.classifier[6].weight)
     return model
