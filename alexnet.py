@@ -77,8 +77,9 @@ class AlexNet(nn.Module):
 
     def forward(self, x: torch.Tensor, alpha=None) -> torch.Tensor:
         x = self.features(x)
-        # x = self.avgpool(x)
-        x = torch.flatten(x, 1)
+        x = self.avgpool(x)
+#         x = torch.flatten(x, 1)
+        x = x.view(x.size(0), -1)
 
         if alpha is not None:
             # gradient reversal layer (backward gradients will be reversed)
