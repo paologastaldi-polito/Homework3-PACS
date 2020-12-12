@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from torch.autograd import Function
 # from .utils import load_state_dict_from_url
 from typing import Any
 
