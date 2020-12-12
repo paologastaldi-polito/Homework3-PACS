@@ -59,7 +59,7 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Linear(4096, num_classes),
+            nn.Linear(4096, num_classes)
         )
         self.labelPredictor = nn.Sequential(
             nn.Dropout(),
@@ -68,7 +68,7 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Linear(4096, num_classes),
+            nn.Linear(4096, num_classes)
         )
         self.domainClassifier = nn.Sequential(
             nn.Dropout(),
@@ -77,7 +77,7 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Linear(4096, 2)
+            nn.Linear(4096, num_classes)
         )
 
     def forward(self, x: torch.Tensor, alpha=None) -> torch.Tensor:
